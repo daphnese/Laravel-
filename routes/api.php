@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderProductController;
 use App\Http\Controllers\ProductController;
@@ -43,3 +44,8 @@ Route::get('order-products/order/{order_id}', [OrderProductController::class, 'g
 Route::post('order-products', [OrderProductController::class, 'store']);
 Route::put('order-products/{order_product_id}', [OrderProductController::class, 'update']);
 Route::delete('order-products/{order_product_id}', [OrderProductController::class, 'destroy']);
+
+Route::get('/images', [ImageController::class, 'getAllImages']);
+Route::get('/images/{name}', [ImageController::class, 'getImage']);
+Route::post('/images', [ImageController::class, 'upload']);
+Route::delete('/images/{name}', [ImageController::class, 'deleteImage']);
