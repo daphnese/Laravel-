@@ -15,18 +15,20 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+//        dd($request->file('image'));
+
         // Generate a unique name using UUID
         $uuid = (string) Str::uuid();
         $extension = $request->file('image')->extension();
         $filename = "{$uuid}.{$extension}";
 
         // Store the image
-        $path = $request->file('image')->storeAs('images', $filename);
+        $path = $request->file('image')->storeAs('images', $filename, 'public');
 
         return response()->json([
             'name' => basename($path),
             'extension' => $request->file('image')->extension(),
-            'url' => Storage::url($path),
+            'url' => asset('storage/' . $path),
         ]);
     }
 
