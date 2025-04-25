@@ -12,10 +12,8 @@ class ImageController extends Controller
     {
         // Validate the request
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
-
-//        dd($request->file('image'));
 
         // Generate a unique name using UUID
         $uuid = (string) Str::uuid();
