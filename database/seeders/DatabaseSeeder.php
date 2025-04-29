@@ -17,14 +17,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+//        User::factory(10)->create();
+//
+//        Category::factory()->count(5)->create();
+//
+//        Product::factory()->count(10)->hasCategory(5)->create();
+//
+//        Order::factory()->count(10)->hasUser(10)->create();
+//
+//        OrderProduct::factory()->count(45)->hasOrder(10)->hasProduct(10)->create();
 
-        Category::factory()->count(5)->create();
-
-        Product::factory()->count(10)->hasCategory(5)->create();
-
-        Order::factory()->count(10)->hasUser(10)->create();
-
-        OrderProduct::factory()->count(45)->hasOrder(10)->hasProduct(10)->create();
+        $this->call([UserSeeder::class]);
     }
 }
